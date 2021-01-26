@@ -4,13 +4,12 @@ import styled from "styled-components";
 import fetch from 'isomorphic-unfetch';
 
 const Post = props =>  {
-    const router = useRouter();
     return (
         <MyLayout>
              <h1>{props.show.name}</h1>
             <Markdown>
                 <div className="markdown">
-                    <h3>{props.show.summary.replace(/<[/]?p>/g, '')}</h3>
+                    <h3>{props.show.summary}</h3>
                     <a>{props.show.url}</a>
                     <img src={props.show.image} />
                 </div>
