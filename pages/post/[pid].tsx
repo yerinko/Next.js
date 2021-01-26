@@ -1,14 +1,23 @@
 import { useRouter } from "next/router";
 import MyLayout from "../../components/MyLayout";
+import styled from "styled-components";
 import fetch from 'isomorphic-unfetch';
 
-const Post = props =>  (
+const Post = props =>  {
+    const router = useRouter();
+    return (
         <MyLayout>
              <h1>{props.show.name}</h1>
-            <p>{props.show.summary.replace(/<[/]?p>/g, '')}</p>
-            <img src={props.show.image} />
+            <Markdown>
+                <div className="markdown">
+                    <h3>{props.show.summary.replace(/<[/]?p>/g, '')}</h3>
+                    <a>{props.show.url}</a>
+                    <img src={props.show.image} />
+                </div>
+            </Markdown>
         </MyLayout>
     )
+}
 
 Post.getInitialProps = async function(context) {
     const {pid} = context.query;
@@ -21,3 +30,21 @@ Post.getInitialProps = async function(context) {
 }
 
 export default Post;
+
+const Markdown = styled.div`
+      .markdown {
+            font-family:'Arial';
+            }
+            .markdown a {
+            text-decoration: none;
+            color: #866ecc;
+            }
+            .markdown a:hover {
+            opacity:0.6;
+            }
+            .markdown h3 {
+            margin:0;
+            padding:0;
+            text-transform: uppercase;
+            }
+    `
