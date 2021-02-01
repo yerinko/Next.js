@@ -5,15 +5,15 @@ import styled from "styled-components";
 const NavBar = () => {
     return(
     <div>
-        <Link href="/">
-            <LinkStyle>
-                Home
-            </LinkStyle>
+        <Link href="../index" >
+            {/*<LinkStyle>*/}
+           <a> Home</a>
+            {/*</LinkStyle>*/}
         </Link>
-        <Link href="/about">
-            <LinkStyle>
-                About
-            </LinkStyle>
+        <Link href="../about">
+            {/*<LinkStyle>*/}
+                <a> About</a>
+            {/*</LinkStyle>*/}
         </Link>
     </div>
     )

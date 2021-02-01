@@ -2,6 +2,9 @@ import { useRouter } from "next/router";
 import MyLayout from "../../components/MyLayout";
 import styled from "styled-components";
 import fetch from 'isomorphic-unfetch';
+import React from 'react';
+import {NextPage, NextPageContext} from "next";
+
 
 const Post = props =>  {
     return (
@@ -18,7 +21,7 @@ const Post = props =>  {
     )
 }
 
-Post.getInitialProps = async function(context) {
+Post.getInitialProps = async (context) => {
     const {pid} = context.query;
     const res = await fetch(`http://api.tvmaze.com/shows/${pid}`);
     const show = await res.json();
