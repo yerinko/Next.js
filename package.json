@@ -10,6 +10,7 @@
     "netlify-deploy": "next build && next export"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
     "@next/bundle-analyzer": "^10.0.5",
     "@types/express": "^4.17.11",
     "dotenv-load": "^2.0.0",
