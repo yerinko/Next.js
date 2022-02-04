@@ -3,22 +3,12 @@ import styled from "styled-components";
 import Link from "next/link";
 import MyLayout from "../components/MyLayout";
 import fetch from 'isomorphic-unfetch';
+import InfoCard from "../components/common/InfoCard";
 
 
 const Index = props => (
     <MyLayout>
-        <Mains>
-        <h1>🧞‍♂️Batman TV Shows 🧛🏻‍♂️</h1>
-        <ul>
-            {props.shows.map(show => (
-                <li key={show.id}>
-                    <Link href="/post/[pid]" as={`/post/${show.id}`}>
-                        <a>{show.name}</a>
-                    </Link>
-                </li>
-            ))}
-        </ul>
-        </Mains>
+        <InfoCard />
     </MyLayout>
 )
 
