@@ -8,7 +8,7 @@ import InfoCard from "../components/common/InfoCard";
 
 const Index = props => (
     <MyLayout>
-        <InfoCard />
+        <InfoCard button="수정"/>
     </MyLayout>
 )
 

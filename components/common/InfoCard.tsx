@@ -2,7 +2,8 @@ import React, {FC} from 'react';
 import { Card, CardContent, CardHeader, Box, Typography, Button, Collapse, Table, TableRow, TableCell } from '@mui/material'
 
 interface InfoCardProps {
-    title?: string
+    title?: string,
+    button?: string
 }
 
 const InfoCard: FC<InfoCardProps> = (props) => {
@@ -18,7 +19,7 @@ const InfoCard: FC<InfoCardProps> = (props) => {
                        title="Title"
                        action={
                            <Button variant="contained" color="primary">
-                               등록
+                               {props.button}
                            </Button>
                        }
                    />
