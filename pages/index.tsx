@@ -4,13 +4,32 @@ import Link from "next/link";
 import MyLayout from "../components/MyLayout";
 import fetch from 'isomorphic-unfetch';
 import InfoCard from "../components/common/InfoCard";
+import {Table} from "@mui/material";
+import React from "react";
 
 
-const Index = props => (
-    <MyLayout>
-        <InfoCard button="수정"/>
-    </MyLayout>
-)
+const Index = () => {
+    const infoData = [
+        { num: 1, filedName: 'email', label: '이메일', content: 'yerinko@test.com'},
+        { num: 2, filedName: 'email', label: '이메일', content: 'yerinko@test.com'}
+    ]
+    return (
+        <MyLayout>
+            <InfoCard title="기본 정보" button="수정">
+                { infoData.map((data) => (
+                    <>
+                        {data.num}
+                    </>
+                    // <TableRow key={data.num}>
+                    //     <TableCell component="th" scope="row">{data.label}</TableCell>
+                    //     <TableCell align="left">{data.content}</TableCell>
+                    // </TableRow>
+                ))}
+            </InfoCard>
+        </MyLayout>
+        )
+}
+
 
 Index.getInitialProps = async function() {
     const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
